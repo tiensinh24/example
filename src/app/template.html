@@ -1,12 +1,16 @@
-<div class="text-white m-2">
-    <div class="p-2" [ngClass]="getClassMap(1)">
-        The first product is {{model.getProduct(1).name}}
+<div class="m-2">
+    <div class="bg-info text-white mb-2 p-2">Model Data: {{jsonProduct}}</div>
+    <div class="form-group">
+        <label >Name</label>
+        <input class="form-control" [(ngModel)]="newProduct.name" />
     </div>
-    <div class="p-2" [ngClass]="getClassMap(2)">
-        The second product is {{model.getProduct(2).name}}
+    <div class="form-group">
+        <label>Category</label>
+        <input class="form-control" [(ngModel)]="newProduct.category" />
     </div>
-    <div class="p-2" [ngClass]="{'bg-success': model.getProduct(3).price < 50,
-                                  'bg-info': model.getProduct(3).price >= 50}">
-        The third product is {{model.getProduct(3).name}}
+    <div class=" form-group">
+        <label>Price</label>
+        <input class=" form-control" [(ngModel)]="newProduct.price" />
     </div>
+    <button class="btn btn-primary" (click)="addProduct(newProduct)">Create</button>
 </div>
