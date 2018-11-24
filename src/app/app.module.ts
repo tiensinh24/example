@@ -1,19 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { PaAttrDirective } from "./attr.directive";
-
-// import { AppComponent } from './app.component';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 import { ProductComponent } from "./component";
+import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
+import { PaAttrDirective } from "./attr.directive";
+import { PaModel } from "./twoway.directive";
+import { PaStructureDirective } from "./structure.directive";
+import { PaIteratorDirective } from "./iterator.directive";
+
+
 
 @NgModule({
-  declarations: [
-    ProductComponent, PaAttrDirective
-  ],
-  imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [ProductComponent]
+    imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+    declarations: [ProductComponent, PaAttrDirective, PaModel,
+        PaStructureDirective, PaIteratorDirective],
+    bootstrap: [ProductComponent]
 })
 export class AppModule { }
