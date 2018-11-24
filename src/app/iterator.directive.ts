@@ -1,23 +1,34 @@
-import { Directive, ViewContainerRef, TemplateRef, Input, SimpleChange } from "@angular/core";
+import { Directive, ViewContainerRef, TemplateRef, Input, SimpleChange,
+    ChangeDetectorRef, CollectionChangeRecord, DefaultIterableDiffer, IterableDiffers } from "@angular/core";
 
 @Directive({
     selector: "[paForOf]"
 })
 export class PaIteratorDirective {
+    private differ: DefaultIterableDiffer<any>;
 
     constructor(private container: ViewContainerRef,
-        private template: TemplateRef<Object>) { }
+        private template: TemplateRef<Object>,
+        private differs: IterableDiffers,
+        private changeDetector: ChangeDetectorRef) { }
 
     @Input("paForOf")
     dataSource: any;
 
     ngOnInit() {
-        this.updateContent();
+        this.differ = <DefaultIterableDiffer<any>> this.differs.find(this.dataSource).create();
     }
 
     ngDoCheck() {
-        console.log("ngDoCheck Called");
-        this.updateContent();
+        let changes = this.differ.diff(this.dataSource);
+        if (changes != null) {
+            console.log("ngDoCheck called, changes detected");
+            changes.forEachAddedItem(addition => {
+                this.container.createEmbeddedView(this.template,
+                    new PaIteratorContext(addition.item,
+                        addition.currentIndex, changes.length));
+            });
+        }
     }
     private updateContent() {
         this.container.clear();
