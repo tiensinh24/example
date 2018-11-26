@@ -11,13 +11,14 @@ import { PaCellColorSwitcher } from "./cellColorSwitcher.directive";
 import { ProductTableComponent } from "./productTable.component";
 import { ProductFormComponent } from "./productForm.component";
 import { PaToggleView } from "./toggleView.component";
+import { PaAddTaxPipe } from "./addTax.pipe";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, ReactiveFormsModule],
     declarations: [ProductComponent, PaAttrDirective, PaModel,
         PaStructureDirective, PaIteratorDirective,
         PaCellColor, PaCellColorSwitcher, ProductTableComponent,
-        ProductFormComponent, PaToggleView],
+        ProductFormComponent, PaToggleView, PaAddTaxPipe],
     bootstrap: [ProductComponent],
     exports: [ProductTableComponent]
 })
