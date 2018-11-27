@@ -11,10 +11,12 @@ import { ProductFormGroup } from "./form.model";
 })
 export class ProductComponent {
 
-    model: Model = new Model();
+    // model: Model = new Model();
 
-    addProduct(p: Product) {
-        this.model.saveProduct(p);
-    }
+    // constructor(private model: Model) { }
+
+    // addProduct(p: Product) {
+    //     this.model.saveProduct(p);
+    // }
 
 }
