@@ -3,7 +3,7 @@ import {
     SimpleChange, Output, EventEmitter, HostListener, HostBinding
 }
     from "@angular/core";
-import { Product } from "./product.model";
+import { Product } from "../model";
 
 @Directive({
     selector: "[pa-attr]"

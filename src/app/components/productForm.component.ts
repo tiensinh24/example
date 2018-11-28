@@ -1,7 +1,6 @@
 import { Component, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { Product } from './product.model';
-import { ProductFormGroup } from './form.model';
-import { Model } from './repository.model';
+import { Product, ProductFormGroup, Model } from '../model';
+import { VALUE_SERVICE } from '../common/valueDisplay.directive';
 
 @Component({
   selector: 'paProductForm',

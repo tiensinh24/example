@@ -1,8 +1,4 @@
-import { ApplicationRef, Component } from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { Model } from "./repository.model";
-import { Product } from "./product.model";
-import { ProductFormGroup } from "./form.model";
+import { Component } from "@angular/core";
 
 @Component({
     selector: "app",
